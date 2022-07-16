@@ -8,6 +8,7 @@ local Section = Tab:NewSection("Aim")
 
 Section:NewToggle("Aim Assist(HOLD MB2)", "JustWorkingAimLol", function(state)
 	if state then
+	print("AIMLOCK WORKING")
 		local Camera = workspace.CurrentCamera
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
