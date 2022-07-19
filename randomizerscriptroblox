@@ -2,9 +2,33 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Roboj
 
 local Window = Library.CreateLib("ToidHub - yw#9645", "RJTheme7")
 
-local Tab = Window:NewTab("AimAssist")
+local Tab = Window:NewTab("Aim")
 
 local Section = Tab:NewSection("Aim")
+
+Section:NewButton("SilentAim", "JustWorkingSilentLol", function()
+    --Hitbox Extender
+--Change 20 to your desired size
+--Change the white to your desired color (I recommend white)
+_G.HeadSize = 20
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really white")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+end)
 
 Section:NewToggle("Aim Assist(HOLD MB2)", "JustWorkingAimLol", function(state)
 	if state then
@@ -296,3 +320,35 @@ game:service("RunService").Stepped:wait()
 end
  end
  end)
+
+Section:NewButton("InfiniteJump(PRESS F)", "JustWorkingJumpLol", function()
+        -- //~ F to toggle ~\ --
+-- I have no idea who made this! 
+_G.infinjump = true
+ 
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.KeyDown:connect(function(k)
+if _G.infinjump then
+if k:byte() == 32 then
+Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+Humanoid:ChangeState("Jumping")
+wait(0.1)
+Humanoid:ChangeState("Seated")
+end
+end
+end)
+ 
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.KeyDown:connect(function(k)
+k = k:lower()
+if k == "f" then
+if _G.infinjump == true then
+_G.infinjump = false
+else
+_G.infinjump = true
+end
+end
+end)
+end)
